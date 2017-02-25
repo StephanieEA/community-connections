@@ -74,6 +74,10 @@ export default class SeniorForm extends Component{
     })
   }
 
+  renderNext(e) {
+    e.preventDefault()
+  }
+
   render() {
     let { name, zipcode, userLearn, userTeach, userRequirement, needToKnow, lease, hours, learnTopics, teachTopics, requirementTopics } = this.state
 
@@ -82,32 +86,38 @@ export default class SeniorForm extends Component{
     return (
       <form className='senior-form'>
        <h2>Create Your Account</h2>
-       <NameZipcode name={name}
+       {switch(this.state.step){
+         case 1:
+          return <NameZipcode name={name}
                     zipcode={zipcode}
                     handleInput={this.handleInputChange} />
-        <LeaseHours lease={lease}
-                    hours={hours}
-                    handleInput={this.handleInputChange}/>
-        <LikeToLearn addLearn={this.addLearn}
-                     learnSci={this.state.learnSci}
-                     learnArt={this.state.learnArt}
-                     learnTech={this.state.learnTech}
-                     learnSports={this.state.learnSports}
-                     handleInput={this.handleInputChange}
-                     userLearn={userLearn}/>
-        <LikeToTeach addTeach={this.addTeach}
-                     teachSci={this.state.teachSci}
-                     teachArt={this.state.teachArt}
-                     teachTech={this.state.teachTech}
-                     teachSports={this.state.teachSports}
-                     handleInput={this.handleInputChange}
-                     userTeach={userTeach}/>
-        <Requirements addRequirement={this.addRequirement}
+         case 2:
+          return <LeaseHours lease={lease}
+                             hours={hours}
+                             handleInput={this.handleInputChange}/>
+         case 3:
+            return <LikeToLearn addLearn={this.addLearn}
+                                learnSci={this.state.learnSci}
+                                learnArt={this.state.learnArt}
+                                learnTech={this.state.learnTech}
+                                learnSports={this.state.learnSports}
+                                handleInput={this.handleInputChange}
+                                userLearn={userLearn}/>
+          case 4:
+            return <LikeToTeach addTeach={this.addTeach}
+                                teachSci={this.state.teachSci}
+                                teachArt={this.state.teachArt}
+                                teachTech={this.state.teachTech}
+                                teachSports={this.state.teachSports}
+                                handleInput={this.handleInputChange}
+                                userTeach={userTeach}/>
+          case 5:
+            return <Requirements addRequirement={this.addRequirement}
                       noSleepovers={this.state.noSleepovers}
                       noSmoking={this.state.noSmoking}
                       yesClean={this.state.yesClean}
                       handleInput={this.handleInputChange}
-                      userRequirement={userRequirement}/>
+                      userRequirement={userRequirement}/>}}
         <button onClick={this.renderNext}>SUBMIT</button>
         <FinalThoughts needToKnow={needToKnow}
                        handleInput={this.handleInputChange}/>
