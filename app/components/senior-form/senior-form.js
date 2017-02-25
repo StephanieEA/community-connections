@@ -28,10 +28,8 @@ export default class SeniorForm extends Component{
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.addItem = this.addItem.bind(this)
     this.createAccount = this.createAccount.bind(this)
-    this.addLearn = this.addLearn.bind(this)
-    this.addTeach = this.addTeach.bind(this)
-    this.addRequirement = this.addRequirement.bind(this)
   }
 
   handleInputChange(e) {
@@ -43,26 +41,34 @@ export default class SeniorForm extends Component{
     })
   }
 
-  addLearn(e) {
+  addItem(e) {
     e.preventDefault()
+
+    const target = e.target
+    const name = target.name
+    const userTopic = target.className.split(' ').find(name => name.includes('user'))
+
+    let updatedTopics = [...this.state[name], this.state[userTopic]]
     this.setState({
-      learnTopics: this.state.learnTopics.push(this.state.userLearn),
-      userLearn: ''
+      [name]: updatedTopics,
+      [userTopic]: ''
     })
   }
 
   addTeach(e) {
     e.preventDefault()
+    let updatedTeachTopics = [...this.state.teachTopics, this.state.userTeach]
     this.setState({
-      teachTopics: this.state.teachTopics.push(this.state.userTeach),
+      teachTopics: updatedTeachTopics,
       userTeach: ''
     })
   }
 
   addRequirement(e) {
     e.preventDefault()
+    let updatedRequirementTopics = [...this.state.requirementTopics, this.state.userRequirement]
     this.setState({
-      requirementTopics: this.state.requirementTopics.push(this.state.userRequirement),
+      requirementTopics: updatedRequirementTopics,
       userRequirement: ''
     })
   }
@@ -88,21 +94,22 @@ export default class SeniorForm extends Component{
         <LeaseHours lease={lease}
                     hours={hours}
                     handleInput={this.handleInputChange}/>
-        <LikeToLearn addLearn={this.addLearn}
+        <LikeToLearn addItem={this.addItem}
                      learnSci={this.state.learnSci}
                      learnArt={this.state.learnArt}
                      learnTech={this.state.learnTech}
                      learnSports={this.state.learnSports}
                      handleInput={this.handleInputChange}
-                     userLearn={userLearn}/>
-        <LikeToTeach addTeach={this.addTeach}
+                     userLearn={userLearn}
+                     inputLearn={inputLearn}/>
+        <LikeToTeach addItem={this.addItem}
                      teachSci={this.state.teachSci}
                      teachArt={this.state.teachArt}
                      teachTech={this.state.teachTech}
                      teachSports={this.state.teachSports}
                      handleInput={this.handleInputChange}
                      userTeach={userTeach}/>
-        <Requirements addRequirement={this.addRequirement}
+        <Requirements addItem={this.addItem}
                       noSleepovers={this.state.noSleepovers}
                       noSmoking={this.state.noSmoking}
                       yesClean={this.state.yesClean}

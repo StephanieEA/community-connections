@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Requirements = ({noSleepovers, noSmoking, yesClean, addRequirement, handleInput, userRequirement}) =>
+const Requirements = ({noSleepovers, noSmoking, yesClean, addItem, handleInput, userRequirement}) =>
 <section>
   <label>Do you have specific requirements for tenants:</label>
   <br/>
@@ -20,8 +20,9 @@ const Requirements = ({noSleepovers, noSmoking, yesClean, addRequirement, handle
          name='userRequirement'
          value={userRequirement}
          onChange={handleInput}/>
-  <button onClick={addRequirement}
-          className='add-requirements-submit'>
+  <button onClick={addItem}
+          name='requirementTopics'
+          className='userRequirement add-requirements-submit'>
           +
   </button>
 </section>

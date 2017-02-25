@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LikeToTeach = ({teachSci, teachArt, teachTech, teachSports, userTeach, addTeach, handleInput}) =>
+const LikeToTeach = ({teachSci, teachArt, teachTech, teachSports, userTeach, addItem, handleInput}) =>
 <section>
   <label>I would like to teach about:</label>
   <br/>
@@ -25,8 +25,8 @@ const LikeToTeach = ({teachSci, teachArt, teachTech, teachSports, userTeach, add
          value={userTeach}
          onChange={handleInput}/>
   <button name ='teachTopics'
-          onClick={addTeach}
-          className='add-teach-submit'>
+          onClick={addItem}
+          className='userTeach add-teach-submit'>
           +
   </button>
 </section>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, userLearn, addLearn, handleInput}) =>
+const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, userLearn, addLearn, handleInput, addItem}) =>
   <section>
     <label>I would like to learn about:</label>
     <br/>
@@ -26,8 +26,9 @@ const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, us
            value={userLearn}
            onChange={handleInput}/>
     <button name='learnTopics'
-            onClick={addLearn}
-            className='add-learn-submit'>
+            className='userLearn addition'
+            onClick={addItem}
+          >
             +
     </button>
   </section>
