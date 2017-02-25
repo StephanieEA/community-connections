@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FinalThoughts = ({needToKnow, handleInput}) =>
+const FinalThoughts = ({needToKnow, handleInput, createAccount}) =>
 <section>
   <label>Is there anything else you want tenants to know about you or your home?</label>
   <br/>
@@ -10,6 +10,7 @@ const FinalThoughts = ({needToKnow, handleInput}) =>
             onChange={handleInput}
             placeholder='I have 2 dogs and a cat.   Dirty dishes and punk rock are pet peeves.  Other than that I’m easy- going and open-minded.  I have a small unfurnished guest room available.'>
   </textarea>
+  <input type='submit' onClick={createAccount}/>
 </section>
 
 export default FinalThoughts

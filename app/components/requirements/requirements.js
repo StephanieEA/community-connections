@@ -1,7 +1,10 @@
 import React from 'react'
 
-const Requirements = ({noSleepovers, noSmoking, yesClean, addRequirement, handleInput, userRequirement}) =>
+import Button from '../../components/button/button.js'
+
+const Requirements = ({noSleepovers, noSmoking, yesClean, addItem, handleInput, userRequirement, nextStep, lastStep}) =>
 <section>
+  <Button text='PREVIOUS' onClick={lastStep}/>
   <label>Do you have specific requirements for tenants:</label>
   <br/>
   <input type='checkbox'
@@ -20,10 +23,12 @@ const Requirements = ({noSleepovers, noSmoking, yesClean, addRequirement, handle
          name='userRequirement'
          value={userRequirement}
          onChange={handleInput}/>
-  <button onClick={addRequirement}
-          className='add-requirements-submit'>
+  <button onClick={addItem}
+          name='requirementTopics'
+          className='userRequirement add-requirements-submit'>
           +
   </button>
+  <Button text='SUBMIT' onClick={nextStep}/>
 </section>
 
 export default Requirements

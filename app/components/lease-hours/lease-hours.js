@@ -1,7 +1,10 @@
 import React from 'react'
 
-const LeaseHours = ({handleInput, lease, hours}) =>
+import Button from '../../components/button/button.js'
+
+const LeaseHours = ({handleInput, lease, hours, nextStep, lastStep}) =>
   <section>
+    <Button text='PREVIOUS' onClick={lastStep}/>
     <label> How long will you consider sharing your home?</label>
     <br/>
     <input type='radio'
@@ -48,6 +51,8 @@ const LeaseHours = ({handleInput, lease, hours}) =>
            checked={hours === '25-30 hours'}
            onChange={handleInput}/> 25-30 hours
     <br/>
+    <Button text='SUBMIT' onClick={nextStep}/>
+
   </section>
 
   export default LeaseHours

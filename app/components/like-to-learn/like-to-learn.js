@@ -1,7 +1,10 @@
 import React from 'react'
 
-const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, userLearn, addLearn, handleInput}) =>
+import Button from '../../components/button/button.js'
+
+const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, userLearn, handleInput, addItem, nextStep, lastStep}) =>
   <section>
+    <Button text='PREVIOUS' onClick={lastStep}/>
     <label>I would like to learn about:</label>
     <br/>
     <input type='checkbox'
@@ -26,10 +29,12 @@ const LikeToLearn = ({learnSci, learnArt, learnTech, learnSports, inputLearn, us
            value={userLearn}
            onChange={handleInput}/>
     <button name='learnTopics'
-            onClick={addLearn}
-            className='add-learn-submit'>
+            className='userLearn addition'
+            onClick={addItem}
+          >
             +
     </button>
+    <Button text='SUBMIT' onClick={nextStep}/>
   </section>
 
 export default LikeToLearn

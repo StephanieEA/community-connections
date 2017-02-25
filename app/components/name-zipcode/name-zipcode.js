@@ -1,6 +1,8 @@
 import React from 'react'
 
-const NameZipcode = ({name, zipcode, handleInput}) =>
+import Button from '../../components/button/button.js'
+
+const NameZipcode = ({name, zipcode, handleInput, nextStep}) =>
     (<section>
     <label> NAME </label>
     <input placeholder='Cynthia Aguilar'
@@ -15,6 +17,8 @@ const NameZipcode = ({name, zipcode, handleInput}) =>
            type='number'
            name='zipcode'
            onChange={handleInput}/>
+    <br/>
+    <Button text='SUBMIT' onClick={nextStep}/>
     </section>)
 
 
