@@ -13,7 +13,6 @@ const router = (
       // <Provider store={store}>
         <Router history={browserHistory}>
           <Route path='/' component={Home} />
-            <IndexRoute component={Home} />
           <Route path='/sign-up' component={SeniorForm} />
         </Router>
       // </Provider>
