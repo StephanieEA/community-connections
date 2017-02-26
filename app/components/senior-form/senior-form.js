@@ -90,10 +90,10 @@ export default class SeniorForm extends Component{
 
 
   render() {
-    let { name, zipcode, userLearn, userTeach, userRequirement, needToKnow, lease, hours, learnTopics, teachTopics, requirementTopics, step } = this.state
+    let { name, zipcode, userLearn, userTeach, userRequirement, needToKnow,
+      lease, hours, learnTopics, teachTopics, requirementTopics, step } =
+      this.state
 
-    let inputLearn = learnTopics.length >= 1 ? learnTopics.map((learn, index) => <p key={index}>{learn}</p>) : ''
-    // is this a weird place to be doing this?
     const renderStep = step => {
       switch(step) {
         case 1:
@@ -115,9 +115,8 @@ export default class SeniorForm extends Component{
                               learnArt={this.state.learnArt}
                               learnTech={this.state.learnTech}
                               learnSports={this.state.learnSports}
+                              learnTopics={learnTopics}
                               handleInput={this.handleInputChange}
-                              userLearn={userLearn}
-                              inputLearn={inputLearn}
                               nextStep={this.nextStep}
                               lastStep={this.lastStep}/>
           break
@@ -127,8 +126,9 @@ export default class SeniorForm extends Component{
                               teachArt={this.state.teachArt}
                               teachTech={this.state.teachTech}
                               teachSports={this.state.teachSports}
-                              handleInput={this.handleInputChange}
+                              teachTopics={teachTopics}
                               userTeach={userTeach}
+                              handleInput={this.handleInputChange}
                               nextStep={this.nextStep}
                               lastStep={this.lastStep}/>
           break
@@ -137,8 +137,9 @@ export default class SeniorForm extends Component{
                                noSleepovers={this.state.noSleepovers}
                                noSmoking={this.state.noSmoking}
                                yesClean={this.state.yesClean}
-                               handleInput={this.handleInputChange}
                                userRequirement={userRequirement}
+                               handleInput={this.handleInputChange}
+                               requirementTopics={requirementTopics}
                                nextStep={this.nextStep}
                                lastStep={this.lastStep}/>
           break
