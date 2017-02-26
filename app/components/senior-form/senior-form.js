@@ -7,7 +7,7 @@ import LikeToTeach from '../../components/like-to-teach/like-to-teach.js'
 import Requirements from '../../components/requirements/requirements.js'
 import FinalThoughts from '../../components/final-thoughts/final-thoughts.js'
 
-import './senior-form.scss'
+import './senior-form'
 
 export default class SeniorForm extends Component{
   constructor(props){
@@ -35,7 +35,6 @@ export default class SeniorForm extends Component{
   }
 
   nextStep () {
-    //  I had to increment next after assigning, it won't work on the same line, why?
     let next = this.state.step
 
     next++
@@ -69,7 +68,7 @@ export default class SeniorForm extends Component{
 
     const target = e.target
     const name = target.name
-    
+
     // this is weird...  is there a better way to do this?
     const userTopic = target.className.split(' ').find(name => name.includes('user'))
 

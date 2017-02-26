@@ -4,6 +4,7 @@ import { Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 // import {Provider} from 'react-redux';
 
 import Home from './components/home/home.js'
+import App from './components/App/App.js'
 import SeniorForm from './components/senior-form/senior-form.js'
 // import store from '../../../app/store.js'
 
@@ -12,8 +13,10 @@ import style from './styles.scss'
 const router = (
       // <Provider store={store}>
         <Router history={browserHistory}>
-          <Route path='/' component={Home} />
-          <Route path='/sign-up' component={SeniorForm} />
+          <Route path='/' component={App}>
+            <IndexRoute component={Home} />
+            <Route path='/sign-up' component={SeniorForm} />
+          </Route>
         </Router>
       // </Provider>
 )
