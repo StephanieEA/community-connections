@@ -14,7 +14,7 @@ const Confirmation = ({user, lastStep}) =>
   <br/>
   <p>Would like to spend {user.hours ? user.hours : 'an unspecified amount of time'} with you</p>
   <br/>
-  <p>Would like to learn about {user.learnTopics.map(learn => learn)}
+  <p>Would like to learn about: {user.learnTopics.map(learn => learn)}
     {user.learnSci ? 'Science' : ''}
     {user.learnArt ? 'Art' : ''}
     {user.learnTech ? 'Tech' : ''}

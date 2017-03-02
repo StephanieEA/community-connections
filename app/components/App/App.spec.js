@@ -8,7 +8,6 @@ import App from './App';
 describe('App', () => {
   it('renders as a <div>', () => {
     const wrapper = shallow(<App/>)
-    console.log(wrapper.debug())
     assert.equal(wrapper.type(), 'div')
   });
 
