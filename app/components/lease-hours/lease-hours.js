@@ -81,6 +81,7 @@ const LeaseHours = ({handleInput, lease, hours, nextStep, lastStep}) =>
                onChange={handleInput}/>
           25-30 hours
       </label>
+      <br/>
       <Button text='SUBMIT' className='next' onClick={nextStep}/>
     </article>
 

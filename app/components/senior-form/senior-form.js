@@ -91,7 +91,6 @@ export default class SeniorForm extends Component{
     const updatedTopicObject = {[name]: updatedTopics, [userTopic]: ''}
     const updatedUserInput = Object.assign(entries, updatedTopicObject)
 
-    debugger
     this.setState({
       userInput: updatedUserInput,
     })

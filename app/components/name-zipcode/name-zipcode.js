@@ -21,6 +21,7 @@ const NameZipcode = ({name, zipcode, handleInput, nextStep}) =>
            onChange={handleInput}/>
     <br/>
     <br/>
+    <br/>
     <Button text='SUBMIT' className='next' onClick={nextStep}/>
     </section>)
 
