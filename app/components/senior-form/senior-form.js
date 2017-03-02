@@ -103,7 +103,6 @@ export default class SeniorForm extends Component{
       user: Object.assign({}, this.state.userInput)
     })
     this.nextStep()
-    console.log(this.state.user)
   }
 
 
