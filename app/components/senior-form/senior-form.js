@@ -122,19 +122,20 @@ export default class SeniorForm extends Component{
             break
         case 3:
           return <LikeToLearn addItem={this.addItem}
-                              userInput={this.state.userInput}
+                        //      userInput={this.state.userInput}
                               learnSci={this.state.learnSci}
                               learnArt={this.state.learnArt}
                               learnTech={this.state.learnTech}
                               learnSports={this.state.learnSports}
                               learnTopics={learnTopics}
+                              userLearn={userLearn}
                               handleInput={this.handleInputChange}
                               nextStep={this.nextStep}
                               lastStep={this.lastStep}/>
           break
         case 4:
           return <LikeToTeach addItem={this.addItem}
-                              userInput={this.state.userInput}
+                          //    userInput={this.state.userInput}
                               teachSci={this.state.teachSci}
                               teachArt={this.state.teachArt}
                               teachTech={this.state.teachTech}
@@ -147,7 +148,7 @@ export default class SeniorForm extends Component{
           break
         case 5:
           return <Requirements addItem={this.addItem}
-                               userInput={this.state.userInput}
+                          //     userInput={this.state.userInput}
                                noSleepovers={this.state.noSleepovers}
                                noSmoking={this.state.noSmoking}
                                yesClean={this.state.yesClean}

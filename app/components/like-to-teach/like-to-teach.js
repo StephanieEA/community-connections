@@ -4,9 +4,10 @@ import Button from '../../components/button/button.js'
 
 export default class LikeToTeach extends React.Component {
   render () {
+    const teachTopics = this.props.teachTopics
     let inputTeach =
-      this.props.teachTopics.length >= 1 ?
-      this.props.teachTopics.map((teach, index) => <p key={index}>{teach}</p>)
+      teachTopics.length >= 1 ?
+      teachTopics.map((teach, index) => <p key={index}>{teach}</p>)
       : ''
 
     return (
