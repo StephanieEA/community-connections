@@ -10,8 +10,8 @@ export default class Requirements extends React.Component {
         <p key={index}>{requirement}</p>)
       : ''
     return (
-      <section>
-        <Button text='PREVIOUS' onClick={this.props.lastStep}/>
+      <section className='step-container'>
+        <Button text='PREVIOUS' className='previous' onClick={this.props.lastStep}/>
         <label>Do you have specific requirements for tenants:</label>
         <br/>
         <input type='checkbox'
@@ -33,10 +33,11 @@ export default class Requirements extends React.Component {
                onChange={this.props.handleInput}/>
         <button onClick={this.props.addItem}
                 name='requirementTopics'
-                className='userRequirement add-requirements-submit'>
+                className='userRequirement add-requirements-submit addition'>
                 +
         </button>
-        <Button text='SUBMIT' onClick={this.props.nextStep}/>
+        <br/>
+        <Button text='SUBMIT' className='next' onClick={this.props.nextStep}/>
       </section>
     )
   }

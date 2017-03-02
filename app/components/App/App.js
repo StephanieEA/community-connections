@@ -4,7 +4,7 @@ import Header from '../../components/header/header.js'
 import SeniorForm from '../../components/senior-form/senior-form.js'
 
 
-const Home = () => {
+const App = () => {
   return (
     <div>
     <Header />
@@ -13,4 +13,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default App;

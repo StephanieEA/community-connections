@@ -1,4 +1,16 @@
+// @import 'variables';
+// @import 'mixins';
+@import '../app/components/name-zipcode/name-zipcode-style.scss';
+@import '../app/components/senior-form/senior-form.scss';
+
+
 body {
   text-align: center;
   background-color: #FEE3B6;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+input {
+  margin: 20px;
+  padding: 20px 5px 10px;
 }

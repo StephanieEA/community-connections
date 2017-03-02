@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 // import {Provider} from 'react-redux';
 
+require('./reset.scss')
+require('./styles.scss')
+
 import Home from './components/home/home.js'
 import App from './components/App/App.js'
 import SeniorForm from './components/senior-form/senior-form.js'

@@ -4,14 +4,15 @@ import Button from '../../components/button/button.js'
 
 export default class LikeToLearn extends React.Component {
   render() {
+    const learnTopics = this.props.userInput.learnTopics
     let inputLearn =
-      this.props.learnTopics.length >= 1 ?
-      this.props.learnTopics.map((learn, index) => <p key={index}>{learn}</p>)
+      learnTopics.length >= 1 ?
+      learnTopics.map((learn, index) => <p key={index}>{learn}</p>)
       : ''
 
     return (
-    <section>
-      <Button text='PREVIOUS' onClick={this.props.lastStep}/>
+    <section className='step-container'>
+      <Button text='PREVIOUS' className='previous' onClick={this.props.lastStep}/>
       <label>I would like to learn about:</label>
       <br/>
       <input type='checkbox'
@@ -33,7 +34,7 @@ export default class LikeToLearn extends React.Component {
       <section>{inputLearn}</section>
       <input placeholder='pop culture'
              name='userLearn'
-             value={this.props.userLearn}
+             value={this.props.userInput.userLearn}
              onChange={this.props.handleInput}/>
       <button name='learnTopics'
               className='userLearn addition'
@@ -41,7 +42,8 @@ export default class LikeToLearn extends React.Component {
             >
               +
       </button>
-      <Button text='SUBMIT' onClick={this.props.nextStep}/>
+      <br/>
+      <Button text='SUBMIT' className='next' onClick={this.props.nextStep}/>
     </section>
     )
   }

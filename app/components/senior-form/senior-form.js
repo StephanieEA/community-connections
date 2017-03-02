@@ -6,24 +6,27 @@ import LikeToLearn from '../../components/like-to-learn/like-to-learn.js'
 import LikeToTeach from '../../components/like-to-teach/like-to-teach.js'
 import Requirements from '../../components/requirements/requirements.js'
 import FinalThoughts from '../../components/final-thoughts/final-thoughts.js'
+import Confirmation from '../../components/confirmation/confirmation.js'
 
-import './senior-form'
 
 export default class SeniorForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      name: '',
-      zipcode: '',
-      userLearn: '',
-      userTeach: '',
-      userRequirement: '',
-      needToKnow: '',
-      lease: '',
-      hours: '',
-      learnTopics: [],
-      teachTopics: [],
-      requirementTopics: [],
+      userInput: {
+        name: '',
+        zipcode: '',
+        userLearn: '',
+        userTeach: '',
+        userRequirement: '',
+        needToKnow: '',
+        lease: '',
+        hours: '',
+        learnTopics: [],
+        teachTopics: [],
+        requirementTopics: [],
+      },
+      user: null,
       step: 1,
     }
 
@@ -49,7 +52,7 @@ export default class SeniorForm extends Component{
     last--
     this.setState({
       step: last
-  })
+    })
   }
 
   handleInputChange(e) {
@@ -58,8 +61,12 @@ export default class SeniorForm extends Component{
 
     const value = target.type === 'checkbox' ? target.checked : target.value
 
+    const enteredInfo = this.state.userInput
+    const infoToAdd = {[name]: value}
+    const updatedInfo = Object.assign(enteredInfo, infoToAdd)
+
     this.setState({
-      [name]: value
+      userInput: updatedInfo
     })
   }
 
@@ -68,15 +75,17 @@ export default class SeniorForm extends Component{
 
     const target = e.target
     const name = target.name
-
-    // this is weird...  is there a better way to do this?
+    const entries = this.state.userInput
     const userTopic = target.className.split(' ').find(name => name.includes('user'))
 
-    let updatedTopics = [...this.state[name], this.state[userTopic]]
+    const updatedTopics = [...this.state.userInput[name], this.state.userInput[userTopic]]
 
+    const updatedTopicObject = {[name]: updatedTopics, [userTopic]: ''}
+    const updatedUserInput = Object.assign(entries, updatedTopicObject)
+
+    debugger
     this.setState({
-      [name]: updatedTopics,
-      [userTopic]: ''
+      userInput: updatedUserInput,
     })
   }
 
@@ -84,15 +93,17 @@ export default class SeniorForm extends Component{
     e.preventDefault()
 
     this.setState({
-      user: Object.assign({}, this.state)
+      user: Object.assign({}, this.state.userInput)
     })
+    this.nextStep()
   }
 
 
   render() {
+    let {step, user} = this.state
     let { name, zipcode, userLearn, userTeach, userRequirement, needToKnow,
-      lease, hours, learnTopics, teachTopics, requirementTopics, step } =
-      this.state
+      lease, hours, learnTopics, teachTopics, requirementTopics } =
+      this.state.userInput
 
     const renderStep = step => {
       switch(step) {
@@ -111,6 +122,7 @@ export default class SeniorForm extends Component{
             break
         case 3:
           return <LikeToLearn addItem={this.addItem}
+                              userInput={this.state.userInput}
                               learnSci={this.state.learnSci}
                               learnArt={this.state.learnArt}
                               learnTech={this.state.learnTech}
@@ -122,6 +134,7 @@ export default class SeniorForm extends Component{
           break
         case 4:
           return <LikeToTeach addItem={this.addItem}
+                              userInput={this.state.userInput}
                               teachSci={this.state.teachSci}
                               teachArt={this.state.teachArt}
                               teachTech={this.state.teachTech}
@@ -134,6 +147,7 @@ export default class SeniorForm extends Component{
           break
         case 5:
           return <Requirements addItem={this.addItem}
+                               userInput={this.state.userInput}
                                noSleepovers={this.state.noSleepovers}
                                noSmoking={this.state.noSmoking}
                                yesClean={this.state.yesClean}
@@ -147,12 +161,18 @@ export default class SeniorForm extends Component{
           return <FinalThoughts needToKnow={needToKnow}
                                 handleInput={this.handleInputChange}
                                 createAccount={this.createAccount}
-                                lastStep={this.lastStep}/>}
+                                lastStep={this.lastStep}/>
+        case 7:
+          return <Confirmation  user={user}
+                                lastStep={this.lastStep}/>
       }
+    }
 
     return (
       <form className='senior-form'>
-       <h2>Create Your Account</h2>
+       <h2 className='create-account-header'>
+         <span className='double'>Create Your Account</span>
+       </h2>
        {renderStep(step)}
       </form>
     )

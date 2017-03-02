@@ -10,8 +10,8 @@ export default class LikeToTeach extends React.Component {
       : ''
 
     return (
-      <section>
-        <Button text='PREVIOUS' onClick={this.props.lastStep}/>
+      <section className='step-container'>
+        <Button text='PREVIOUS' className='previous' onClick={this.props.lastStep}/>
         <label>I would like to teach about:</label>
         <br/>
         <input type='checkbox'
@@ -37,11 +37,11 @@ export default class LikeToTeach extends React.Component {
                onChange={this.props.handleInput}/>
         <button name ='teachTopics'
                 onClick={this.props.addItem}
-                className='userTeach add-teach-submit'>
+                className='userTeach add-teach-submit addition'>
                 +
         </button>
         <br/>
-        <Button text='SUBMIT' onClick={this.props.nextStep}/>
+        <Button text='SUBMIT' className='next' onClick={this.props.nextStep}/>
       </section>
     )
   }
