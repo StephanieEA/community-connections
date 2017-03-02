@@ -9,38 +9,43 @@ export default class Requirements extends React.Component {
     let inputRequirements =
       this.props.requirementTopics.length >= 1 ?
       this.props.requirementTopics.map((requirement, index) =>
-        <p key={index}>{requirement}</p>)
+        <label className='checkbox-question' key={index}><input type='checkbox'/>
+          {requirement}
+        </label>)
       : ''
     return (
       <section className='step-container'>
         <Button text='PREVIOUS' className='previous' onClick={this.props.lastStep}/>
         <label>Do you have specific requirements for tenants:</label>
         <br/>
-        <Input type='checkbox'
+        <label className='checkbox-question'>
+        <input type='checkbox'
                name='noSleepovers'
                onChange={this.props.handleInput}/>
                No overnight guests
-        <br/>
-        <Input type='checkbox'
-               name='noSmoking'
-               onChange={this.props.handleInput}/>
-               No smoking
-        <br/>
-        <Input type='checkbox'
-               name='yesClean'
-               onChange={this.props.handleInput}/>
-               Keep Common Areas Clean
-        <br/>
+        </label>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                 name='noSmoking'
+                 onChange={this.props.handleInput}/>
+                 No smoking
+        </label>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                 name='yesClean'
+                 onChange={this.props.handleInput}/>
+                 Keep Common Areas Clean
+        </label>
         <section>{inputRequirements}</section>
-        <Input placeholder='no pets'
+        <input placeholder='no pets'
                name='userRequirement'
                value={this.props.userRequirement}
                onChange={this.props.handleInput}/>
-        <Button onClick={this.props.addItem}
+        <button onClick={this.props.addItem}
                 name='requirementTopics'
                 className='userRequirement add-requirements-submit addition'>
                 +
-        </Button>
+        </button>
         <br/>
         <Button text='SUBMIT' className='next' onClick={this.props.nextStep}/>
       </section>

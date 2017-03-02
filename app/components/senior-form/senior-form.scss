@@ -33,12 +33,12 @@ label {
   display: inline-block;
   width: 80%;
   max-width: 1200px;
-  padding: 2em;
+  padding: 1em;
   max-width: 1200px;
-  position: relative;
+  min-height: 420px;
   margin: auto;
   background: #EFEFEF;
-  color: #02010A;
+  color: #202221;
   font-size: 24px;
   letter-spacing: 2px;
 }
@@ -52,11 +52,11 @@ label {
 .next {
   border: none;
   border-radius: 10px;
-  background: #202221;
+  background: #02010A;
   color: #EFEFEF;
   font-size: 20px;
   letter-spacing: 3px;
-  margin: 1em;
+  margin-top: 30px;
   padding: 20px 80px;
 }
 
@@ -65,7 +65,7 @@ label {
   left: 0;
   top: 0;
   border-radius: 10px;
-  background: #202221;
+  background: #02010A;
   border: none;
   color: #EFEFEF;
   font-size: 20px;
@@ -74,11 +74,38 @@ label {
   padding: 20px 65px;
 }
 
+.radio-article {
+  margin: 30px auto;
+}
+
 .radio-answer {
   display: inline-block;
   margin: 20px;
+  background: #191820;
+  color: #EFEFEF;
+  padding: 14px;
+  border-radius: 25px;
+}
+
+.checkbox-question {
+  display: block;
+  margin-top: 15px;
+  border: #7BCCC7 5px double;
 }
 
 .addition {
-  color: magenta;
+  color: #202221;
+    font-size: 30px;
+    padding: 10px 15px;
+    background: #7BCCC7;
+    border: none;
+}
+
+.needToKnow {
+  width: 90%;
+  max-width: 1200px;
+  padding: 10px;
+  margin: 15px auto;
+  font-size: 18px;
+  min-height: 200px;
 }

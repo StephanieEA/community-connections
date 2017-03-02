@@ -7,7 +7,11 @@ export default class LikeToTeach extends React.Component {
     const teachTopics = this.props.teachTopics
     let inputTeach =
       teachTopics.length >= 1 ?
-      teachTopics.map((teach, index) => <p key={index}>{teach}</p>)
+      teachTopics.map((teach, index) =>
+        <label className='checkbox-question' key={index}>
+          <input type='checkbox'/>
+          {teach}
+        </label>)
       : ''
 
     return (
@@ -15,22 +19,26 @@ export default class LikeToTeach extends React.Component {
         <Button text='PREVIOUS' className='previous' onClick={this.props.lastStep}/>
         <label>I would like to teach about:</label>
         <br/>
-        <input type='checkbox'
-               name='teachSci'
-               onChange={this.props.handleInput}/>Science
-        <br/>
-        <input type='checkbox'
-               name='teachArt'
-               onChange={this.props.handleInput}/>Art
-        <br/>
-        <input type='checkbox'
-               name='teachTech'
-               onChange={this.props.handleInput}/> Technology
-        <br/>
-        <input type='checkbox'
-               name='teachSports'
-               onChange={this.props.handleInput}/> Sports
-        <br/>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                name='teachSci'
+                onChange={this.props.handleInput}/>Science
+        </label>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                 name='teachArt'
+                 onChange={this.props.handleInput}/>Art
+        </label>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                name='teachTech'
+                onChange={this.props.handleInput}/> Technology
+        </label>
+        <label className='checkbox-question'>
+          <input type='checkbox'
+                 name='teachSports'
+                 onChange={this.props.handleInput}/> Sports
+        </label>
         <section>{inputTeach}</section>
         <input placeholder='music theory'
                name='userTeach'

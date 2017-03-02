@@ -12,12 +12,14 @@ const NameZipcode = ({name, zipcode, handleInput, nextStep}) =>
            value={name}
            onChange={handleInput}/>
     <br/>
+    <br/>
     <label>ZIPCODE</label>
     <input placeholder='80202'
            value={zipcode}
            type='number'
            name='zipcode'
            onChange={handleInput}/>
+    <br/>
     <br/>
     <Button text='SUBMIT' className='next' onClick={nextStep}/>
     </section>)
