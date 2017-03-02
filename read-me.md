@@ -16,9 +16,9 @@ This project is currently in development. Users can add a senior account.
 
 #### Example:   
 
-[ PRETEND SCREEN SHOT IS HERE ]
+[ https://drive.google.com/open?id=0BzELQ2OrMBmjemJzN3VBZFNwMmc]
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+[ https://drive.google.com/open?id=0BzELQ2OrMBmjTFRsQTUtSVMyWVE ]
 
 ## Installation and Setup Instructions
 
