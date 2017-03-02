@@ -24,21 +24,36 @@ label {
 }
 
 .double {
-  border-bottom: #3C4F6E 6px double;
+  border-bottom: #EFEFEF 6px double;
+  color: #EFEFEF;
+  letter-spacing: 3px;
 }
 
 .step-container {
+  display: inline-block;
+  width: 80%;
+  max-width: 1200px;
   padding: 2em;
   max-width: 1200px;
   position: relative;
   margin: auto;
+  background: #EFEFEF;
+  color: #02010A;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.enter-your-header {
+  margin-bottom: 1.5em;
+  font-weight: 600;
+  font-size: 26px;
 }
 
 .next {
   border: none;
   border-radius: 10px;
-  background: #3C4F6E;
-  color: #F2EFF3;
+  background: #202221;
+  color: #EFEFEF;
   font-size: 20px;
   letter-spacing: 3px;
   margin: 1em;
@@ -50,13 +65,13 @@ label {
   left: 0;
   top: 0;
   border-radius: 10px;
-  background: #3C4F6E;
+  background: #202221;
   border: none;
-  color: #F2EFF3;
+  color: #EFEFEF;
   font-size: 20px;
   letter-spacing: 3px;
   margin: 1em;
-  padding: 10px 10px;
+  padding: 20px 65px;
 }
 
 .radio-answer {
