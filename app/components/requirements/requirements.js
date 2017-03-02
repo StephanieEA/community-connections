@@ -16,15 +16,18 @@ export default class Requirements extends React.Component {
         <br/>
         <input type='checkbox'
                name='noSleepovers'
-               onChange={this.props.handleInput}/>No overnight guests
+               onChange={this.props.handleInput}/>
+               No overnight guests
         <br/>
         <input type='checkbox'
                name='noSmoking'
-               onChange={this.props.handleInput}/>No smoking
+               onChange={this.props.handleInput}/>
+               No smoking
         <br/>
         <input type='checkbox'
                name='yesClean'
-               onChange={this.props.handleInput}/> Keep Common Areas Clean
+               onChange={this.props.handleInput}/>
+               Keep Common Areas Clean
         <br/>
         <section>{inputRequirements}</section>
         <input placeholder='no pets'

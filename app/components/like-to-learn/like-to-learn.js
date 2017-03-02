@@ -17,19 +17,23 @@ export default class LikeToLearn extends React.Component {
       <br/>
       <input type='checkbox'
              name='learnSci'
-             onChange={this.props.handleInput}/>Science
+             onChange={this.props.handleInput}/>
+             Science
       <br/>
       <input type='checkbox'
              name='learnArt'
-             onChange={this.props.handleInput}/>Art
+             onChange={this.props.handleInput}/>
+             Art
       <br/>
       <input type='checkbox'
              name='learnTech'
-             onChange={this.props.handleInput}/> Technology
+             onChange={this.props.handleInput}/>
+             Technology
       <br/>
       <input type='checkbox'
              name='learnSports'
-             onChange={this.props.handleInput}/> Sports
+             onChange={this.props.handleInput}/>
+             Sports
       <br/>
       <section>{inputLearn}</section>
       <input placeholder='pop culture'
