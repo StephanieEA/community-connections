@@ -16,6 +16,7 @@ export default class SeniorForm extends Component{
       userInput: {
         name: '',
         zipcode: '',
+        // learnDefault: [{learnSci: false}, ]
         learnSci: false,
         learnArt: false,
         learnTech: false,
@@ -35,7 +36,7 @@ export default class SeniorForm extends Component{
         requirementTopics: [],
       },
       user: null,
-      step: 1,
+      step: 2,
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)

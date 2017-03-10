@@ -7,6 +7,7 @@ const FinalThoughts = ({needToKnow, handleInput, createAccount, lastStep}) =>
   <Button text='PREVIOUS' onClick={lastStep} className='previous'/>
   <label>Is there anything else you want tenants to know about you or your home?</label>
   <br/>
+  <label className='add-need-to-know'>
   <textarea className='needToKnow'
             name='needToKnow'
             value={needToKnow}
@@ -15,6 +16,7 @@ const FinalThoughts = ({needToKnow, handleInput, createAccount, lastStep}) =>
   </textarea>
   <br/>
   <input type='submit' className='next' onClick={createAccount}/>
+</label> 
 </section>
 
 export default FinalThoughts

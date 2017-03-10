@@ -19,25 +19,26 @@ export default class Requirements extends React.Component {
         <label>Do you have specific requirements for tenants:</label>
         <br/>
         <label className='checkbox-question'>
-        <input type='checkbox'
+        <Input type='checkbox'
                name='noSleepovers'
                onChange={this.props.handleInput}/>
                No overnight guests
         </label>
         <label className='checkbox-question'>
-          <input type='checkbox'
+          <Input type='checkbox'
                  name='noSmoking'
                  onChange={this.props.handleInput}/>
                  No smoking
         </label>
         <label className='checkbox-question'>
-          <input type='checkbox'
+          <Input type='checkbox'
                  name='yesClean'
                  onChange={this.props.handleInput}/>
                  Keep Common Areas Clean
         </label>
         <section>{inputRequirements}</section>
-        <input placeholder='no pets'
+        <label className='add-requirement'>
+        <Input placeholder='no pets'
                name='userRequirement'
                value={this.props.userRequirement}
                onChange={this.props.handleInput}/>
@@ -46,6 +47,7 @@ export default class Requirements extends React.Component {
                 className='userRequirement add-requirements-submit addition'>
                 +
         </button>
+      </label>
         <br/>
         <Button text='SUBMIT' className='next' onClick={this.props.nextStep}/>
       </section>
