@@ -1,8 +1,6 @@
 ## Community Connections
 
-#### Example:
-
-TweetWorld
+#### 
 
 My app matches seniors with spare rooms and students that need housing, based on the time available each could spend with the other and shared interests.  It's inspired by the HUMANITAS house in the Netherlands, where students stay at the nursing home rent-free, in exchange for 30 hours of service with the residents.  Such programs or matches could not only help ease the social isolation that can come with aging and the financial burden of higher education, but help break down age-segregation in society.  
 
