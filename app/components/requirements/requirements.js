@@ -7,8 +7,8 @@ import Input from '../../components/input/input.js'
 export default class Requirements extends React.Component {
   render() {
     let inputRequirements =
-      this.props.requirementTopics.length >= 1 ?
-      this.props.requirementTopics.map((requirement, index) =>
+      this.props.userInput.requirementTopics.length >= 1 ?
+      this.props.userInput.requirementTopics.map((requirement, index) =>
         <label className='checkbox-question' key={index}><input type='checkbox'/>
           {requirement}
         </label>)

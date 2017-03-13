@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Input =
-({onChange, value, placeholder, type, className, checked, disabled, name, label}) => (
+({onChange, value, placeholder, type, className, checked, disabled, name}) => (
   <input  type={type}
           onChange={onChange}
           value={value}
@@ -10,11 +10,7 @@ const Input =
           checked={checked}
           disabled={disabled}
           placeholder={placeholder}
-          className={className}
-          // label={value}
-          // aria-label={label}
-        //  aria-labelledby={label}
-/>
+          className={className}/>
 )
 
 export default Input;

@@ -52,7 +52,7 @@ label {
 .next {
   border: none;
   border-radius: 10px;
-  background: #02010A;
+  background-color: #02010A;
   color: #EFEFEF;
   font-size: 20px;
   letter-spacing: 3px;
@@ -109,4 +109,8 @@ label {
   margin: 15px auto;
   font-size: 18px;
   min-height: 200px;
+}
+
+.user-card > h1 {
+  font-size: 34px;
 }

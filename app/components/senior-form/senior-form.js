@@ -13,37 +13,11 @@ export default class SeniorForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      userInput: {
-        name: '',
-        zipcode: '',
-        // learnDefault: [{learnSci: false}, ]
-        learnSci: false,
-        learnArt: false,
-        learnTech: false,
-        learnSports: false,
-        teachSci: false,
-        teachArt: false,
-        teachTech: false,
-        teachSports: false,
-        userLearn: '',
-        userTeach: '',
-        userRequirement: '',
-        needToKnow: '',
-        lease: '',
-        hours: '',
-        learnTopics: [],
-        teachTopics: [],
-        requirementTopics: [],
-      },
-      user: null,
-      step: 2,
+      step: 6,
     }
-
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.addItem = this.addItem.bind(this)
-    this.createAccount = this.createAccount.bind(this)
     this.nextStep = this.nextStep.bind(this)
     this.lastStep = this.lastStep.bind(this)
+    this.confirm = this.confirm.bind(this)
   }
 
   nextStep () {
@@ -64,121 +38,66 @@ export default class SeniorForm extends Component{
     })
   }
 
-  handleInputChange(e) {
-    const target = e.target
-    const name = target.name
-
-    const value = target.type === 'checkbox' ? target.checked : target.value
-
-    const enteredInfo = this.state.userInput
-    const infoToAdd = {[name]: value}
-    const updatedInfo = Object.assign(enteredInfo, infoToAdd)
-
-    this.setState({
-      userInput: updatedInfo
-    })
-  }
-
-  addItem(e) {
-    e.preventDefault()
-
-    const target = e.target
-    const name = target.name
-    const entries = this.state.userInput
-    const userTopic = target.className.split(' ').find(name => name.includes('user'))
-
-    const updatedTopics = [...this.state.userInput[name], this.state.userInput[userTopic]]
-
-    const updatedTopicObject = {[name]: updatedTopics, [userTopic]: ''}
-    const updatedUserInput = Object.assign(entries, updatedTopicObject)
-
-    this.setState({
-      userInput: updatedUserInput,
-    })
-  }
-
-  createAccount(e){
-    e.preventDefault()
-
-    this.setState({
-      user: Object.assign({}, this.state.userInput)
-    })
+  confirm () {
+    this.props.createAccount()
     this.nextStep()
   }
 
-
   render() {
-    let {step, user} = this.state
-    let { name, zipcode, userLearn, userTeach, userRequirement, needToKnow,
-      lease, hours, learnTopics, teachTopics, requirementTopics } =
-      this.state.userInput
+    let {step} = this.state
 
     const renderStep = step => {
       switch(step) {
         case 1:
-          return <NameZipcode name={name}
-                              zipcode={zipcode}
-                              handleInput={this.handleInputChange}
+          return <NameZipcode userInput={this.props.userInput}
+                              handleInput={this.props.handleInput}
                               nextStep={this.nextStep}/>
           break
         case 2:
-          return <LeaseHours lease={lease}
-                             hours={hours}
-                             handleInput={this.handleInputChange}
+          return <LeaseHours userInput={this.props.userInput}
+                             handleInput={this.props.handleInput}
                              nextStep={this.nextStep}
                              lastStep={this.lastStep}/>
             break
         case 3:
-          return <LikeToLearn addItem={this.addItem}
-                              learnSci={this.state.learnSci}
-                              learnArt={this.state.learnArt}
-                              learnTech={this.state.learnTech}
-                              learnSports={this.state.learnSports}
-                              learnTopics={learnTopics}
-                              userLearn={userLearn}
-                              handleInput={this.handleInputChange}
+          return <LikeToLearn userInput={this.props.userInput}
+                              addItem={this.props.addItem}
+                              handleInput={this.props.handleInput}
                               nextStep={this.nextStep}
                               lastStep={this.lastStep}/>
           break
         case 4:
-          return <LikeToTeach addItem={this.addItem}
-                              teachSci={this.state.teachSci}
-                              teachArt={this.state.teachArt}
-                              teachTech={this.state.teachTech}
-                              teachSports={this.state.teachSports}
-                              teachTopics={teachTopics}
-                              userTeach={userTeach}
-                              handleInput={this.handleInputChange}
+          return <LikeToTeach userInput={this.props.userInput}
+                              addItem={this.props.addItem}
+                              handleInput={this.props.handleInput}
                               nextStep={this.nextStep}
                               lastStep={this.lastStep}/>
           break
         case 5:
-          return <Requirements addItem={this.addItem}
-                               noSleepovers={this.state.noSleepovers}
-                               noSmoking={this.state.noSmoking}
-                               yesClean={this.state.yesClean}
-                               userRequirement={userRequirement}
-                               handleInput={this.handleInputChange}
-                               requirementTopics={requirementTopics}
+          return <Requirements userInput={this.props.userInput}
+                               addItem={this.props.addItem}
+                               handleInput={this.props.handleInput}
                                nextStep={this.nextStep}
                                lastStep={this.lastStep}/>
           break
         case 6:
-          return <FinalThoughts needToKnow={needToKnow}
-                                handleInput={this.handleInputChange}
-                                createAccount={this.createAccount}
+          return <FinalThoughts userInput={this.props.userInput}
+                                handleInput={this.props.handleInput}
+                                confirm={this.confirm}
                                 lastStep={this.lastStep}/>
         case 7:
-          return <Confirmation  user={user}
+          return <Confirmation  user={this.props.user}
                                 lastStep={this.lastStep}/>
       }
     }
 
     return (
       <form className='senior-form'>
-       <h2 className='create-account-header'>
-         <span className='double'>Create Your Account</span>
-       </h2>
+       {!this.props.user ?
+         <h2 className='create-account-header'>
+           <span className='double'>Create Your Account</span>
+         </h2> :
+         <h2> 'Your information will appear as:' </h2>}
        {renderStep(step)}
       </form>
     )

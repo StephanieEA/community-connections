@@ -6,7 +6,8 @@ import Input from '../../components/input/input.js'
 
 export default class LikeToLearn extends React.Component {
   render() {
-    const learnTopics = this.props.learnTopics
+    
+    const learnTopics = this.props.userInput.learnTopics
     let InputLearn =
       learnTopics.length >= 1 ?
       learnTopics.map((learn, index) =>

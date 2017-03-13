@@ -9,6 +9,7 @@ require('./styles.scss')
 import Home from './components/home/home.js'
 import App from './components/App/App.js'
 import SeniorForm from './components/senior-form/senior-form.js'
+import Confirmation from './components/confirmation/confirmation.js'
 // import store from '../../../app/store.js'
 
 import style from './styles.scss'
@@ -19,6 +20,7 @@ const router = (
           <Route path='/' component={App}>
             <IndexRoute component={Home} />
             <Route path='/sign-up' component={SeniorForm} />
+            <Route path='/confirmation' component={Confirmation}/>
           </Route>
         </Router>
       // </Provider>
